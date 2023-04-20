@@ -12,6 +12,9 @@ public class ContainerList {
 		else first.add(toAdd);
 		size++;
 	}
-	
+	public void deleteContainer(Container toDelete) {
+		toDelete.getNext().setPrev(toDelete.getPrev());
+		toDelete.getPrev().setNext(toDelete.getNext());
+	}
 
 }
