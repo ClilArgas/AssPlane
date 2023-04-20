@@ -6,19 +6,19 @@ public class Container{
 	private Container next;
 	private Container twin;
 	public Boolean axis;
-	public Container(Point data) {
+	public Container(Point data,boolean axis) {
 		this.data=data;
 		prev=null;
 		next=null;
 		twin=null;
-		axis=null;
-	}
-	public Container(Point data, Container prev,Container next, Container twin, Boolean axis) {
-		this.data=data;
-		this.prev=prev;
-		this.next=next;
-		this.twin=twin;
 		this.axis=axis;
+	}
+	public Container(Container other) {
+		this.data=other.data;
+		this.prev=other.prev;
+		this.next=other.next;
+		this.twin=other;
+		this.axis=!other.axis;
 	}
 	//Don't delete or change this function
 	// Getters and Setters
@@ -38,7 +38,7 @@ public class Container{
 	public void setPrev(Container prv) {
 		prev=prv;
 	}
-	public void settwin(Container twn) {
+	public void setTwin(Container twn) {
 		twin=twn;
 	}
 	public void setNext(Container nxt) {

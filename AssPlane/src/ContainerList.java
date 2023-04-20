@@ -1,6 +1,6 @@
 
 public class ContainerList {
-	int size;
+	public int size;
     public Container first;
 	public ContainerList() {
 		first=null;
@@ -15,6 +15,7 @@ public class ContainerList {
 	public void deleteContainer(Container toDelete) {
 		toDelete.getNext().setPrev(toDelete.getPrev());
 		toDelete.getPrev().setNext(toDelete.getNext());
+		size--;
 	}
 
 }
