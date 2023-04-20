@@ -38,6 +38,9 @@ public class Container{
 	public void setPrev(Container prv) {
 		prev=prv;
 	}
+	public void settwin(Container twn) {
+		twin=twn;
+	}
 	public void setNext(Container nxt) {
 		next=nxt;
 	}
@@ -51,9 +54,24 @@ public class Container{
 			getNext().setPrev(toAdd);
 			setNext(toAdd);
 		}
-		else {
+		else
 			getNext().add(toAdd);
-		}
 	}
-	
+
+	public void delete (Container toDelete) {
+		Container twn = toDelete.getTwin();
+		Container prv = toDelete.getPrev();
+		Container nxt = toDelete.getNext();
+
+		prv.setNext(nxt);
+		nxt.setPerv(prv);
+
+		Container twnprv = twn.getPrev();
+		Container twnnxt = twn.getNext();
+
+		twnprv.setNext(twnprv);
+		twnnxt.setPrev(twnprv);
+
+	}
+
 }
