@@ -30,6 +30,10 @@ public class Container{
 		if(axis) return data.getX();
 		return data.getY();
 	}
+	public int getOppositeAxisValue() {
+		if(axis) return data.getY();
+		return data.getX();
+	}
 	public Container getPrev() {
 		return prev;
 	}

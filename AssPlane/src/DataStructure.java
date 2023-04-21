@@ -75,8 +75,12 @@ public class DataStructure implements DT {
 
 	@Override
 	public Point[] getPointsInRangeOppAxis(int min, int max, Boolean axis) {
-		// TODO Auto-generated method stub
-		return null;
+		ContainerList search;
+		if(axis) search=listY;
+		else search =listX;
+		int counter=0;
+		
+		
 	}
 
 	@Override
