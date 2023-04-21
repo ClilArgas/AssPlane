@@ -38,19 +38,39 @@ public class DataStructure implements DT {
 		toAddX.setTwin(toAddY);
 		listX.addContainer(toAddX);
 		listY.addContainer(toAddY);
-	}
+		maxX=senMaxX.getPrev();
+		maxY=senMaxY.getPrev();
+		}
 
 	@Override
 	public Point[] getPointsInRangeRegAxis(int min, int max, Boolean axis) {
         ContainerList search;
-        if(axis) search=listX;
-        else search=listY;
-        int counter=-2;
-        Container currFoward;
-        
-        
-		
-		return null;
+        Container sen;
+        if(axis) {
+        	search=listX;
+            sen=senMaxX;
+        }
+        else {
+        	search=listY;
+        	sen=senMaxY;
+        }
+        int counter=0;
+        Container currFoward=search.first.getNext();
+        Container currBackward=sen.getPrev();
+        while(currFoward.getAxisValue()<min & currFoward!=sen) {
+        	counter++;
+        	currFoward=currFoward.getNext();
+        }
+        while(currBackward.getAxisValue()>max & currBackward!=search.first) {
+        	counter++;
+        	currBackward=currBackward.getPrev();
+        }
+        Point arr[]= new Point[counter];
+        for(int i=0;i<counter;i++) {
+        	arr[i]=currFoward.getData();
+        	currFoward=currFoward.getNext();
+        }
+        return arr;
 	}
 
 	@Override

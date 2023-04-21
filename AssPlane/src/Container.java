@@ -26,6 +26,10 @@ public class Container{
 	{
 		return data;
 	}
+	public int getAxisValue() {
+		if(axis) return data.getX();
+		return data.getY();
+	}
 	public Container getPrev() {
 		return prev;
 	}
