@@ -65,8 +65,8 @@ public class DataStructure implements DT {
         	counter++;
         	currBackward=currBackward.getPrev();
         }
-        Point arr[]= new Point[counter];
-        for(int i=0;i<counter;i++) {
+        Point arr[]= new Point[search.size-counter];
+        for(int i=0;i<arr.length;i++) {
         	arr[i]=currFoward.getData();
         	currFoward=currFoward.getNext();
         }
